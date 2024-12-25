@@ -24,4 +24,11 @@ it('should borrow a book', () => {
     library.addBook(book);
     expect(() => library.borrowBook('123')).to.throw('Book not available');
   });
+  it('should return a book', () => {
+    const library = new Library();
+    const book = new Book('123', 'Test Book', 'Author', 2021, false);
+    library.addBook(book);
+    library.returnBook('123');
+    expect(book.isAvailable).to.be.true;
+  });
   
