@@ -31,4 +31,14 @@ it('should borrow a book', () => {
     library.returnBook('123');
     expect(book.isAvailable).to.be.true;
   });
+  it('should view available books', () => {
+    const library = new Library();
+    const book1 = new Book('123', 'Test Book 1', 'Author 1', 2021, true);
+    const book2 = new Book('456', 'Test Book 2', 'Author 2', 2020, false);
+    library.addBook(book1);
+    library.addBook(book2);
+    const availableBooks = library.getAvailableBooks();
+    expect(availableBooks).to.include(book1);
+    expect(availableBooks).to.not.include(book2);
+  });
   
