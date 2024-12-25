@@ -15,6 +15,13 @@ export class Library {
     book.isAvailable = false;
   }
 
+  returnBook(isbn: string): void {
+    const book = this.books.find(book => book.isbn === isbn);
+    if (book) {
+      book.isAvailable = true;
+    }
+  }
+
   getBooks(): Book[] {
     return this.books;
   }
