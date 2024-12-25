@@ -25,4 +25,8 @@ export class Library {
   getBooks(): Book[] {
     return this.books;
   }
+
+  getAvailableBooks(): Book[] {
+    return this.books.filter(book => book.isAvailable);
+  }
 }
